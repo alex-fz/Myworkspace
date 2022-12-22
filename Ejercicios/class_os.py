@@ -36,3 +36,5 @@ if __name__ == '__main__':
     files.read_files_on_path()
     cProfile.run('files.read_files_on_path()')
     print(timeit.timeit('files.read_files_on_path()', 'from __main__ import files, MyPath', number=100))
+    print('testing my neovim terminal')
+
