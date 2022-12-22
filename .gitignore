@@ -1,0 +1,6 @@
+Otros
+*.csv
+Practica_random
+__pycache__/
+*.log
+*.dat

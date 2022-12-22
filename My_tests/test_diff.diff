@@ -1,0 +1,131 @@
+commit b32f6b84444929ef5bd3e768f127c86b7973461e
+Author: Zardix <laxis2907v2@gmail.com>
+Date:   Wed Dec 7 16:17:07 2022 +0100
+
+    Changed the script personaje.py
+    
+    also changed permission in password.py and testing_exs.py
+
+diff --git a/Ejercicios/password.py b/Ejercicios/password.py
+old mode 100644
+new mode 100755
+diff --git a/Ejercicios/testing_exs.py b/Ejercicios/testing_exs.py
+old mode 100644
+new mode 100755
+diff --git a/My_tests/personaje.py b/My_tests/personaje.py
+index 24d12d5..a044cdb 100755
+--- a/My_tests/personaje.py
++++ b/My_tests/personaje.py
+@@ -4,51 +4,78 @@ import sys
+ import random
+ 
+ class Personaje():
+-    def __init__(self, x, y, nombre):
+-        self.x = x
+-        self.y = y
+-        self.vida = 3
+-        self.nombre = nombre
+-    def caminar_pasos(self):
+-        pasos_a_dar = input('Hacia que direccion quiere ir y cuantos pasos quiere dar: ').lower().split(' ')
+-        for v in pasos_a_dar:
+-            if v.isnumeric():
+-                pasos_numero = int(v)  
+-            
+-        if 'derecha' in pasos_a_dar:
+-            self.x += pasos_numero
+-        elif 'izquierda' in pasos_a_dar:
+-            self.x -= pasos_numero
++    health = 100
++    x_position = random.randint(1, 500)
++    y_position = random.randint(1, 500)
++    def __init__(self):
++        self.velocity = 3
++        pass
+     
+-    def __str__(self):
+-        return f'Hola me llamo {self.nombre}, estoy en las posciones x{self.x}, y{self.y}'
+-
+-    def dar_salto(self):
+-        while True:
+-            opcion = input('pulsa x para saltar o s para salir: ').lower()
+-            if opcion == 'x':
+-                self.y += 5
+-                print('saltando... {}'.format(self.y))
+-            elif opcion == 's':
+-                print('saliendo...')
+-                break
++    def damage_receive(self, num_damage):
++        print('Ha recibido {} puntos de daño'.format(num_damage))
++        self.health -= num_damage
++        print('You have right know {} pints of health'.format(self.health))
++
++    def walk(self, right_or_left, up_or_down):
++        '''True = Right, False  = Left
++            True = up, False = down'''
++        information = 'ahora estoy en la posicion {} y de altura {}'.format(self.x_position, self.y_position)
++        execute = 0
++        while execute == 0:
++            if right_or_left:
++                self.x_position += self.velocity
++                print(information)
++                execute = 1
++            elif right_or_left == False:
++                self.x_position -= self.velocity
++                print(information)
++                execute = 1
++            else:
++                self.x_position 
++                print(information)
++                sys.exit(0)
++                
++            if up_or_down:
++                self.y_position += self.velocity
++                print(information)
++                execute = 1
++            elif up_or_down == False:
++                self.y_position -= self.velocity
++                print(information)
++                execute = 1
+             else:
+-                raise ValueError
++                self.y_position
++                print(information)
++                sys(exit)
++
+ 
+ 
++class Mago(Personaje):
++    def __init__(self):
++        super().__init__()
++        self.velocity = 2
++        self.health = 50
++    
++    def health_me(self):
++        self.health += random.randint(1,100)
++
++
++
++    
+ 
+ def main():
+-    name = input('Que nombre deseas darle a tu personaje: ')
+-    while True:
+-        character_1 = Personaje(random.randint(1,100), random.randint(1,100), name)
+-        character_1.dar_salto()
+-        print(character_1)
+-        sys.exit()
++    character = Mago()
++    for n in range(10): 
++        character.walk(True, False)
++        print(character.health)
++        character.health_me()
++        print(character.health)
+ 
+ 
+ if __name__ == '__main__':
+     main()
+ 
+ 
++
+         
+         

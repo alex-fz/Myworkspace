@@ -1,0 +1,147 @@
+# callgrind format
+version: 1
+creator: pprofile
+event: usphit :microseconds/hit
+events: hits microseconds usphit
+cmd: ./only_testting.py
+fl=/usr/lib/python3.10/_collections_abc.py
+fn=get:816
+816 1 3 3
+818 1 6 6
+819 1 9 9
+cfl=/usr/lib/python3.10/os.py
+cfn=__getitem__:674
+calls=1 674
+819 1 51 51
+fl=./only_testting.py
+fn=<module>:1
+1 1 14 14
+3 1 16 16
+4 1 5 5
+6 1 4 4
+7 1 13 13
+cfl=/usr/lib/python3.10/_collections_abc.py
+cfn=get:816
+calls=1 816
+7 1 71 71
+9 1 3 3
+19 1 12 12
+cfl=./only_testting.py
+cfn=check_files:9
+calls=1 9
+19 1 112845 112845
+fn=check_files:9
+9 1 3 3
+10 1 10 10
+cfl=/usr/lib/python3.10/genericpath.py
+cfn=isdir:39
+calls=1 39
+10 1 24 24
+11 444 2979 6
+cfl=/usr/lib/python3.10/os.py
+cfn=walk:282
+calls=1 282
+11 1 12 12
+cfl=/usr/lib/python3.10/os.py
+cfn=_walk:344
+calls=444 344
+11 444 105020 236
+12 1365 2786 2
+13 922 1947 2
+14 6 61 10
+fl=/usr/lib/python3.10/genericpath.py
+fn=isdir:39
+39 1 2 2
+41 1 5 5
+42 1 10 10
+45 1 5 5
+fl=/usr/lib/python3.10/posixpath.py
+fn=join:71
+71 442 769 1
+76 442 1085 2
+77 442 2523 5
+cfl=/usr/lib/python3.10/posixpath.py
+cfn=_get_sep:41
+calls=442 41
+77 442 2302 5
+78 442 936 2
+79 442 869 1
+80 442 881 1
+82 884 1842 2
+83 442 940 2
+85 442 878 1
+88 442 946 2
+92 442 819 1
+fn=_get_sep:41
+41 442 557 1
+42 442 929 2
+45 442 815 1
+fn=islink:164
+164 442 674 1
+166 442 838 1
+167 442 2331 5
+170 442 1110 2
+fl=/usr/lib/python3.10/os.py
+fn=__getitem__:674
+674 1 2 2
+675 1 5 5
+676 1 12 12
+cfl=/usr/lib/python3.10/os.py
+cfn=encode:754
+calls=1 754
+676 1 11 11
+680 1 13 13
+cfl=/usr/lib/python3.10/os.py
+cfn=decode:758
+calls=1 758
+680 1 5 5
+fn=encode:754
+754 1 3 3
+755 1 3 3
+757 1 4 4
+fn=decode:758
+758 1 2 2
+759 1 3 3
+fn=walk:282
+282 1 4 4
+341 1 3 3
+342 1 4 4
+fn=_walk:344
+344 443 1185 2
+345 443 1381 3
+346 443 1381 3
+347 443 1229 2
+354 443 1228 2
+357 443 3132 7
+363 886 2657 2
+364 1807 4786 2
+365 1807 4641 2
+366 1807 4619 2
+367 1807 9297 5
+368 443 1560 3
+369 443 1405 3
+375 1364 3629 2
+376 1364 3851 2
+382 1364 3540 2
+383 442 1212 2
+385 922 2516 2
+387 1364 3535 2
+406 443 1163 2
+407 886 2120 2
+410 443 1465 3
+411 885 2394 2
+412 442 2945 6
+cfl=/usr/lib/python3.10/posixpath.py
+cfn=join:71
+calls=442 71
+412 442 14796 33
+417 442 2991 6
+cfl=/usr/lib/python3.10/posixpath.py
+cfn=islink:164
+calls=442 164
+417 442 4955 11
+418 2287 15395 6
+cfl=/usr/lib/python3.10/os.py
+cfn=_walk:344
+calls=2287 344
+418 2287 101506 44
