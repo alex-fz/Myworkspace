@@ -50,10 +50,14 @@ class DictionClass():
 class WorkPandas():
     def __init__(self, dictionary:dict):
         self.dictionary = dictionary
-
-    def CreateCsv(self):
+        self.work_data_frame = None
+    def create_csv(self):
         df = pd.DataFrame.from_dict(self.dictionary)
         df.to_csv(os.path.join(dir_path, "work_dic.csv"))
+        self.work_data_frame = df
+
+    def unnammed(self):
+        print(self.work_data_frame.median())
 
 
 
@@ -73,7 +77,8 @@ def main():
     #With the random dictionary create an istance for the work pandas class 
     #And create a csv
     pandas_work = WorkPandas(a_dictionary)
-    pandas_work.CreateCsv()
+    pandas_work.create_csv()
+    pandas_work.unnammed()
 
 
 
