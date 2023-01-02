@@ -12,14 +12,16 @@
 
 # check_season("enero")
 
-import numpy as np
+# import numpy as np
 
-def factorial(number:int):
-    assert number > 0, "El numero debe ser mayor de 0"
+# def factorial(number:int):
+#     assert number > 0, "El numero debe ser mayor de 0"
 
-    list_mult = [v for v in range(1, number+1)]
-    number = np.prod(list_mult)
-    print(number)
+#     list_mult = [v for v in range(1, number+1)]
+#     number = np.prod(list_mult)
+#     print(number)
 
 if __name__ == "__main__":
-    factorial(6)
+    # factorial(6)
+    iterable = ["a", "b", "c", "d", "e"]
+    print(list(map(lambda x:x/2, iterable)))

@@ -32,23 +32,39 @@ logging.basicConfig(filename=os.path.join(log_path, "log_unn.log"), filemode="w"
                     format="%(asctime)s %(levelname)s %(message)s", level=logging.INFO)
 
 
+def ensure_data_frame(data_frame):
+
+    if not type(data_frame) == type(pd.DataFrame()):
+        raise ValueError("parameter is not a dataframe, ensure to create before")
+
 
 ## Main class for work 
-class Unnammed():
+class PdDict():
     
     def __init__(self, work_dictionary:dict):
         
         self.work_dictionary = work_dictionary
+        self.data_frame = ""
 
     def create_data_frame(self):
-        df = pd.DataFrame(self.work_dictionary, index=[0])
+        df = pd.DataFrame(self.work_dictionary)
         logging.info(msg="Created dataframe")
+        self.data_frame = df
         return df
+
+    def analize(self):
+       
+        ensure_data_frame(self.data_frame)
+        
+        self.data_frame:pd.DataFrame()
+        print(self.data_frame.loc[0, 3])
+
+
+
 
 
 if __name__ == "__main__":
-    test_dict = {key + 1:str(value) + "." + "Value" for key, value in enumerate(range(1,10))}
-    
-    instance_test = Unnammed(work_dictionary=test_dict)
-    df = instance_test.create_data_frame()
-    print(df) 
+    test_dict = {key + 1:[str(value) + "." + "Value", np.random.randint(1,100)] for key, value in enumerate(range(1,10))}
+    instance_test = PdDict(work_dictionary=test_dict)
+    instance_test.create_data_frame()
+    instance_test.analize()
